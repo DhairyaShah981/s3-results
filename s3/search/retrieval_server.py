@@ -217,10 +217,9 @@ class DenseRetriever(BaseRetriever):
         super().__init__(config)
         self.index = faiss.read_index(self.index_path)
         if config.faiss_gpu:
-            co = faiss.GpuMultipleClonerOptions()
-            co.useFloat16 = True
-            co.shard = True
-            self.index = faiss.index_cpu_to_all_gpus(self.index, co=co)
+            # Use only GPU 0 (relative to CUDA_VISIBLE_DEVICES)
+            res = faiss.StandardGpuResources()
+            self.index = faiss.index_cpu_to_gpu(res, 0, self.index)
 
         self.corpus = load_corpus(self.corpus_path)
         self.encoder = Encoder(
@@ -330,6 +329,11 @@ class QueryRequest(BaseModel):
 
 
 app = FastAPI()
+
+@app.get("/health")
+def health_check():
+    """Health check endpoint"""
+    return {"status": "ok"}
 
 @app.post("/retrieve")
 def retrieve_endpoint(request: QueryRequest):

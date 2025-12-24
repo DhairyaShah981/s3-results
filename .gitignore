@@ -37,6 +37,16 @@ var/
 *.egg-info/
 .installed.cfg
 *.egg
+# Ignore shell/text/md files EXCEPT in reproduction folder
+*.sh
+*.txt
+*.md
+!reproduction/**/*.sh
+!reproduction/**/*.txt
+!reproduction/**/*.md
+!reproduction/**/*.json
+!reproduction/**/*.log
+!README.md
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
@@ -120,6 +130,7 @@ tests/e2e/toy_examples/deepspeed/synchronous/output.txt
 log/
 
 **logs
+!reproduction/logs/**
 
 # keys
 *.key
@@ -139,6 +150,7 @@ nq_hotpotqa_
 
 
 results
+!reproduction/results/**
 
 results_
 sft_model

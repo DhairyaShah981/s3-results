@@ -1,0 +1,212 @@
+{
+  "stats": {
+    "triviaqa": {
+      "total": 1,
+      "correct": 1,
+      "accuracy": 1.0,
+      "em_correct": 0,
+      "em_accuracy": 0.0
+    },
+    "2wikimultihopqa": {
+      "total": 1,
+      "correct": 1,
+      "accuracy": 1.0,
+      "em_correct": 1,
+      "em_accuracy": 1.0
+    },
+    "popqa": {
+      "total": 2,
+      "correct": 2,
+      "accuracy": 1.0,
+      "em_correct": 0,
+      "em_accuracy": 0.0
+    },
+    "hotpotqa": {
+      "total": 2,
+      "correct": 0,
+      "accuracy": 0.0,
+      "em_correct": 0,
+      "em_accuracy": 0.0
+    },
+    "musique": {
+      "total": 1,
+      "correct": 0,
+      "accuracy": 0.0,
+      "em_correct": 0,
+      "em_accuracy": 0.0
+    },
+    "nq": {
+      "total": 3,
+      "correct": 3,
+      "accuracy": 1.0,
+      "em_correct": 1,
+      "em_accuracy": 0.3333333333333333
+    },
+    "overall": {
+      "total": 10,
+      "correct": 7,
+      "accuracy": 0.7,
+      "em_correct": 2,
+      "em_accuracy": 0.2
+    }
+  },
+  "detailed_results": [
+    {
+      "question": "\"Who said \"\"we're more popular than Jesus now\"\", in 1966?\"?",
+      "golden_answers": [
+        [
+          "John Winston Ono Lennon, MBE",
+          "Winston Leg-Thigh",
+          "Lennon, John",
+          "Beatle John",
+          "Jhon lennon",
+          "Dr. Winston O'Boogie",
+          "Lennon",
+          "JohnLennon",
+          "9 Newcastle Road",
+          "John Lennon (solo)",
+          "Johnny Lennon",
+          "Dr Winston O'Boogie",
+          "Jack Lennon",
+          "John Winston Ono Lennon",
+          "John lennon",
+          "John and Yoko",
+          "God Save Oz",
+          "John Winston Lennon",
+          "John Lennon",
+          "John Lenin",
+          "Lennon john",
+          "John W. Lennon",
+          "John Lenon",
+          "John Lennon Statement Controversial",
+          "John W. O. Lennon",
+          "John Ono Lennon"
+        ]
+      ],
+      "model_output": "In 1966, John Lennon said \"we're more popular than Jesus now\" during an interview with Maureen Cleave for the London \"Evening Standard\".",
+      "em": 0,
+      "accuracy": 1,
+      "data_source": "triviaqa"
+    },
+    {
+      "question": "What is the place of birth of Anne Elizabeth Rector's husband?",
+      "golden_answers": [
+        [
+          "Jersey City",
+          "Jersey City, New Jersey"
+        ]
+      ],
+      "model_output": "Jersey City, New Jersey",
+      "em": 1,
+      "accuracy": 1,
+      "data_source": "2wikimultihopqa"
+    },
+    {
+      "question": "Who was the screenwriter for Le grand soir?",
+      "golden_answers": [
+        [
+          "Gustave de Kervern",
+          "Gustave Kervern"
+        ]
+      ],
+      "model_output": "Le Grand Soir was written and directed by Benoît Delépine and Gustave de Kervern.",
+      "em": 0,
+      "accuracy": 1,
+      "data_source": "popqa"
+    },
+    {
+      "question": "What genre is Francesco Guardi?",
+      "golden_answers": [
+        [
+          "veduta",
+          "vedute"
+        ]
+      ],
+      "model_output": "Francesco Guardi was a painter, specifically known for his veduta and later for his unique painterly style characterized by a \"pittura di tocco\" (of touch) for its small dotting and spirited brush-strokes. He is not associated with a specific genre like \"sacro\" or \"opera comica\" but is known for his contributions to the Venetian School of painting.",
+      "em": 0,
+      "accuracy": 1,
+      "data_source": "popqa"
+    },
+    {
+      "question": "How many records has the singer which Robert Gale tour with during his fifteen year of tour sang with dropped?",
+      "golden_answers": [
+        [
+          "140 million records"
+        ]
+      ],
+      "model_output": "Based on the information provided, Robert Gale toured with various swing bands and back-up bands during his fifteen years of touring. However, the specific number of records the singer(s) he toured with have dropped is not mentioned in the given contexts. Therefore, we cannot determine the number of records from the provided information.",
+      "em": 0,
+      "accuracy": 0,
+      "data_source": "hotpotqa"
+    },
+    {
+      "question": "The home video game console that was developed by Sony Computer Entertainment is a platform for a racing video game developed by who?",
+      "golden_answers": [
+        [
+          "Sony Studio Liverpool"
+        ]
+      ],
+      "model_output": "Sony Computer Entertainment developed the PlayStation, a home video game console that was a platform for the racing video game \"Gran Turismo,\" developed by Polyphony Digital.",
+      "em": 0,
+      "accuracy": 0,
+      "data_source": "hotpotqa"
+    },
+    {
+      "question": "Who is daughter to the third Rebbe of Chabad Lubavitch, named after his father?",
+      "golden_answers": [
+        [
+          "Dovber Schneuri"
+        ]
+      ],
+      "model_output": "The question refers to a specific individual but does not directly match any of the provided contexts. However, based on the information given in Doc 3 about Chaya Mushka Schneerson, she was named after the wife of the third Lubavitcher Rebbe, Rabbi Menachem Mendel Schneersohn. Therefore, the answer to the question is Chaya Mushka Schneerson.",
+      "em": 0,
+      "accuracy": 0,
+      "data_source": "musique"
+    },
+    {
+      "question": "where was the summer olympics held in 2012?",
+      "golden_answers": [
+        [
+          "London",
+          "London, United Kingdom"
+        ]
+      ],
+      "model_output": "The 2012 Summer Olympics were held in London, United Kingdom.",
+      "em": 0,
+      "accuracy": 1,
+      "data_source": "nq"
+    },
+    {
+      "question": "where do pineapples come from in the world?",
+      "golden_answers": [
+        [
+          "Costa Rica",
+          "Philippines",
+          "Brazil",
+          "the Philippines",
+          "Thailand",
+          "Indonesia",
+          "India"
+        ]
+      ],
+      "model_output": "Pineapples originate from South America, specifically from the region between southern Brazil and Paraguay. They were spread by indigenous people throughout South America and eventually reached the Caribbean, Central America, and Mexico, where they were cultivated by the Mayas and the Aztecs. Columbus encountered the pineapple in 1493 on the island of Guadeloupe. The Spanish introduced pineapples to the Philippines, Hawaii, Zimbabwe, and Guam. The Dutch brought them to northern Europe from their colony in Suriname.",
+      "em": 0,
+      "accuracy": 1,
+      "data_source": "nq"
+    },
+    {
+      "question": "which type of hematoma is a result of torn bridging meningeal veins?",
+      "golden_answers": [
+        [
+          "A subdural hematoma",
+          "subdural hematoma (SDH)",
+          "subdural hematoma"
+        ]
+      ],
+      "model_output": "subdural hematoma",
+      "em": 1,
+      "accuracy": 1,
+      "data_source": "nq"
+    }
+  ]
+}

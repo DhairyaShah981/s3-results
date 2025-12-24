@@ -206,6 +206,111 @@ Although reproducing the model yourself is straightforward — and we actually *
 
 
 
+---
+
+## 🔬 Dhairya's Reproduction Effort
+
+This section documents the successful reproduction of S3 inference results on RunPod infrastructure.
+
+### 📊 Reproduction Results (Quick Test - 10 Samples)
+
+| Dataset | Samples | Accuracy | Exact Match |
+|---------|---------|----------|-------------|
+| triviaqa | 1 | 100% | 0% |
+| 2wikimultihopqa | 1 | 100% | 100% |
+| popqa | 2 | 100% | 0% |
+| hotpotqa | 2 | 0% | 0% |
+| musique | 1 | 0% | 0% |
+| nq | 3 | 100% | 33% |
+| **OVERALL** | **10** | **70%** | **20%** |
+
+*Metrics match paper's evaluation: Accuracy = span check + LLM semantic check; EM = normalized string equality*
+
+### 🖥️ Infrastructure Used
+
+- **Platform**: RunPod
+- **GPUs**: 2× NVIDIA A100 SXM 80GB
+- **Container Disk**: 100GB
+- **Volume Disk**: 150GB
+- **Base Image**: `runpod/pytorch:2.1.0-py3.10-cuda11.8.0-devel-ubuntu22.04`
+
+### 🚀 Quick Start (RunPod Reproduction)
+
+```bash
+# 1. Setup environment (run once)
+bash reproduction/scripts/RUNPOD_SETUP.sh
+
+# 2. Start servers (Retriever + Generator)
+bash reproduction/scripts/start_servers.sh
+
+# 3. Run quick test (10 samples)
+bash reproduction/scripts/run_quick_test.sh
+
+# 4. Evaluate results
+python3 reproduction/scripts/evaluate_with_paper_metrics.py \
+    --input_dir data/output_quick_test
+```
+
+### 📁 Reproduction Files
+
+```
+reproduction/
+├── scripts/
+│   ├── RUNPOD_SETUP.sh           # Environment setup
+│   ├── start_servers.sh          # Start Retriever + Generator
+│   ├── run_quick_test.sh         # Run inference (10 samples)
+│   └── evaluate_with_paper_metrics.py  # Evaluation script
+├── results/
+│   ├── evaluation_results_paper_metrics.json
+│   └── output_quick_test/        # JSON output sequences
+└── logs/
+    └── quick_test_trace.log      # Detailed inference trace
+```
+
+### 🔧 Key Modifications Made
+
+1. **`s3/search/retrieval_server.py`**: Fixed FAISS GPU allocation to prevent OOM
+2. **`verl/trainer/main_ppo.py`**: Added numpy-to-list conversion for JSON serialization
+3. **`generator_llms/gpt_azure.py`**: Updated langchain imports for compatibility
+
+### 📋 Architecture Overview
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                        S3 Pipeline                          │
+├─────────────────────────────────────────────────────────────┤
+│                                                             │
+│  ┌──────────┐    ┌───────────┐    ┌───────────┐            │
+│  │  Actor   │───►│ Retriever │───►│ Generator │            │
+│  │(Search   │    │(E5 + FAISS│    │(Qwen 7B   │            │
+│  │ Agent)   │    │  Index)   │    │ GPTQ-Int4)│            │
+│  └──────────┘    └───────────┘    └───────────┘            │
+│       │                │                │                   │
+│       │ GPU 0+1        │ GPU 1          │ GPU 0             │
+│       │ ~15GB          │ ~24GB          │ ~15GB             │
+│       ▼                ▼                ▼                   │
+│   Query Gen      Doc Retrieval    Answer Gen               │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘
+```
+
+### 🐛 Common Issues & Fixes
+
+| Issue | Solution |
+|-------|----------|
+| CUDA OOM | Use `gpu_memory_utilization=0.4`, separate GPUs for components |
+| SSH disconnect | Add `ServerAliveInterval 60` to SSH config |
+| pyairports import error | Patch outlines types/__init__.py |
+| numpy JSON serialization | Convert arrays to lists before json.dump |
+
+### 👤 Author
+
+**Dhairya Shah** - [GitHub](https://github.com/DhairyaShah981)
+
+Reproduction completed: December 2024
+
+---
+
 ## Citation
 ```bibtex
 @article{jiang2025s3,

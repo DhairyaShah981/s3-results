@@ -60,6 +60,17 @@ class RewardManager():
             with open(cache_file, 'w') as f:
                 json.dump(self.output_sequences_data[data_source], f, indent=2)
 
+    def _convert_numpy_to_list(self, obj):
+        """Recursively convert numpy arrays to lists for JSON serialization"""
+        if isinstance(obj, np.ndarray):
+            return obj.tolist()
+        elif isinstance(obj, dict):
+            return {key: self._convert_numpy_to_list(value) for key, value in obj.items()}
+        elif isinstance(obj, list):
+            return [self._convert_numpy_to_list(item) for item in obj]
+        else:
+            return obj
+    
     def save_all_output_sequences(self):
         """Save all output sequences for all data sources"""
         with self.output_sequences_lock:
@@ -68,8 +79,10 @@ class RewardManager():
                     continue
                     
                 cache_file = os.path.join(self.output_sequences_dir, f"{data_source}_output_sequences.json")
+                # Convert numpy arrays to lists before saving
+                serializable_data = self._convert_numpy_to_list(self.output_sequences_data[data_source])
                 with open(cache_file, 'w') as f:
-                    json.dump(self.output_sequences_data[data_source], f, indent=2)
+                    json.dump(serializable_data, f, indent=2)
 
     def __call__(self, data: DataProto):
         """We will expand this function gradually based on the available datasets"""
@@ -136,8 +149,10 @@ class RewardManager():
                     if random.random() < 0.01:
                         # Save to a temporary file first
                         temp_file = os.path.join(self.output_sequences_dir, f"{data_source}_output_sequences.json.tmp")
+                        # Convert numpy arrays to lists before saving
+                        serializable_data = self._convert_numpy_to_list(self.output_sequences_data[data_source])
                         with open(temp_file, 'w') as f:
-                            json.dump(self.output_sequences_data[data_source], f, indent=2)
+                            json.dump(serializable_data, f, indent=2)
                         # Atomic rename
                         final_file = os.path.join(self.output_sequences_dir, f"{data_source}_output_sequences.json")
                         os.rename(temp_file, final_file)

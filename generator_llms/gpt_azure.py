@@ -12,10 +12,12 @@ os.environ["OPENAI_API_VERSION"] = "2023-03-15-preview"
 
 from langchain_openai import AzureChatOpenAI
 from langchain_community.callbacks import get_openai_callback
-from langchain.schema import HumanMessage
+try:
+    from langchain.schema import HumanMessage
+except ImportError:
+    from langchain_core.messages import HumanMessage
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
-
 from langchain_core.output_parsers import JsonOutputParser
 
 

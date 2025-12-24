@@ -1,0 +1,112 @@
+[
+    {
+      "id": "nq_0",
+      "question": "who got the first nobel prize in physics",
+      "search_queries": [
+        "who got the first nobel prize in physics",
+        "Wilhelm Röntgen first Nobel Prize in Physics"
+      ],
+      "answer": "Wilhelm Röntgen.",
+      "ground_truth": "Wilhelm Conrad Röntgen",
+      "num_turns": 2
+    },
+    {
+      "id": "nq_1",
+      "question": "when is the next deadpool movie being released",
+      "search_queries": [
+        "when is the next deadpool movie being released",
+        "next deadpool movie release date"
+      ],
+      "answer": "The release date for the next Deadpool movie, \"Deadpool 3,\" has not been officially announced.",
+      "ground_truth": "May 18, 2018",
+      "num_turns": 2
+    },
+    {
+      "id": "nq_2",
+      "question": "which mode is used for short wave broadcast service",
+      "search_queries": [
+        "which mode is used for short wave broadcast service",
+        "What is the most commonly used mode for shortwave broadcasting?"
+      ],
+      "answer": "Amplitude modulation (AM) is the mode used for shortwave broadcast service.",
+      "ground_truth": "Olivia",
+      "num_turns": 2
+    },
+    {
+      "id": "nq_3",
+      "question": "the south west wind blows across nigeria between",
+      "search_queries": [
+        "the south west wind blows across nigeria between",
+        "south west wind Nigeria timing"
+      ],
+      "answer": "The south west wind, or the Tropical Maritime (MT) airmass, blows across Nigeria from February in the southern part of Nigeria and reaches the northern part of Nigeria by June.",
+      "ground_truth": "till September",
+      "num_turns": 2
+    },
+    {
+      "id": "nq_4",
+      "question": "what does hp mean in war and order",
+      "search_queries": [
+        "what does hp mean in war and order",
+        "What does HP mean in the context of War and Order"
+      ],
+      "answer": "In the context of War and Order, HP stands for \"Health Points,\" which indicates the continued ability of characters or entities to function in the game.",
+      "ground_truth": "hit points or health points",
+      "num_turns": 2
+    },
+    {
+      "id": "nq_5",
+      "question": "who wrote the first declaration of human rights",
+      "search_queries": [
+        "who wrote the first declaration of human rights",
+        "john peters humphrey universal declaration of human rights"
+      ],
+      "answer": "John Peters Humphrey wrote the first draft of the Universal Declaration of Human Rights.",
+      "ground_truth": "Cyrus",
+      "num_turns": 2
+    },
+    {
+      "id": "nq_6",
+      "question": "who is the owner of reading football club",
+      "search_queries": [
+        "who is the owner of reading football club",
+        "current owner of reading football club"
+      ],
+      "answer": "The current owners of Reading Football Club are Renhe Sports Management Ltd, which is 100% owned by Xiu Li Dai and Yongge Dai.",
+      "ground_truth": "Xiu Li Dai",
+      "num_turns": 2
+    },
+    {
+      "id": "nq_7",
+      "question": "when is the next scandal episode coming out",
+      "search_queries": [
+        "when is the next scandal episode coming out",
+        "when is the next episode of scandal coming out"
+      ],
+      "answer": "There are no new episodes of \"Scandal\" coming out, as the series concluded with its final episode on April 19, 2018.",
+      "ground_truth": "February 1, 2018",
+      "num_turns": 2
+    },
+    {
+      "id": "nq_8",
+      "question": "when is the last time the philadelphia won the superbowl",
+      "search_queries": [
+        "when is the last time the philadelphia won the superbowl",
+        "When did the Philadelphia Eagles win the Super Bowl in 2018?"
+      ],
+      "answer": "The last time the Philadelphia Eagles won the Super Bowl was in 2018.",
+      "ground_truth": "Super Bowl LII,",
+      "num_turns": 2
+    },
+    {
+      "id": "nq_9",
+      "question": "who was the first lady nominated member of the rajya sabha",
+      "search_queries": [
+        "who was the first lady nominated member of the rajya sabha",
+        "first lady rajya sabha nominee"
+      ],
+      "answer": "Rukmini Devi Arundale was the first ever woman in Indian history to be nominated as a member of the Rajya Sabha.",
+      "ground_truth": "Mary Kom",
+      "num_turns": 2
+    }
+  ]
